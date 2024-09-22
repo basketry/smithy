@@ -1,0 +1,6 @@
+coverage
+node_modules
+src/snapshot/example.smithy
+src/snapshot/snapshot.json
+
+lib
