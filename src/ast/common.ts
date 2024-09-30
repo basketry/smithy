@@ -1,0 +1,16 @@
+export const trivia = new Set<string>([
+  'WS',
+  'SP',
+  'BR',
+  'IdentifierStart',
+  'IdentifierChars',
+  'ALPHA',
+  'NL',
+  'NotNL',
+  'DQUOTE',
+  'QuotedChar',
+  'DigitOneToNine',
+  'DIGIT',
+  'Zero',
+  'Comma',
+]);

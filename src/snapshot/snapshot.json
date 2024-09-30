@@ -5,7 +5,130 @@
   "title": { "value": "TODO" },
   "majorVersion": { "value": 1 },
   "interfaces": [],
-  "types": [],
+  "types": [
+    {
+      "kind": "Type",
+      "name": { "value": "Task" },
+      "properties": [
+        {
+          "kind": "Property",
+          "name": { "value": "id" },
+          "isPrimitive": true,
+          "isArray": false,
+          "typeName": { "value": "string" },
+          "rules": []
+        },
+        {
+          "kind": "Property",
+          "name": { "value": "title" },
+          "isPrimitive": true,
+          "isArray": false,
+          "typeName": { "value": "string" },
+          "rules": []
+        },
+        {
+          "kind": "Property",
+          "name": { "value": "description" },
+          "isPrimitive": true,
+          "isArray": false,
+          "typeName": { "value": "string" },
+          "rules": []
+        },
+        {
+          "kind": "Property",
+          "name": { "value": "completed" },
+          "isPrimitive": true,
+          "isArray": false,
+          "typeName": { "value": "string" },
+          "rules": []
+        }
+      ],
+      "rules": []
+    },
+    {
+      "kind": "Type",
+      "name": { "value": "CreateTaskInput" },
+      "properties": [
+        {
+          "kind": "Property",
+          "name": { "value": "title" },
+          "isPrimitive": true,
+          "isArray": false,
+          "typeName": { "value": "string" },
+          "rules": []
+        },
+        {
+          "kind": "Property",
+          "name": { "value": "description" },
+          "isPrimitive": true,
+          "isArray": false,
+          "typeName": { "value": "string" },
+          "rules": []
+        }
+      ],
+      "rules": []
+    },
+    {
+      "kind": "Type",
+      "name": { "value": "CreateTaskOutput" },
+      "properties": [
+        {
+          "kind": "Property",
+          "name": { "value": "task" },
+          "isPrimitive": true,
+          "isArray": false,
+          "typeName": { "value": "string" },
+          "rules": []
+        }
+      ],
+      "rules": []
+    },
+    {
+      "kind": "Type",
+      "name": { "value": "ListTasksOutput" },
+      "properties": [
+        {
+          "kind": "Property",
+          "name": { "value": "tasks" },
+          "isPrimitive": true,
+          "isArray": false,
+          "typeName": { "value": "string" },
+          "rules": []
+        }
+      ],
+      "rules": []
+    },
+    {
+      "kind": "Type",
+      "name": { "value": "DeleteTaskInput" },
+      "properties": [
+        {
+          "kind": "Property",
+          "name": { "value": "id" },
+          "isPrimitive": true,
+          "isArray": false,
+          "typeName": { "value": "string" },
+          "rules": []
+        }
+      ],
+      "rules": []
+    },
+    {
+      "kind": "Type",
+      "name": { "value": "TaskList" },
+      "properties": [
+        {
+          "kind": "Property",
+          "name": { "value": "member" },
+          "isPrimitive": true,
+          "isArray": false,
+          "typeName": { "value": "string" },
+          "rules": []
+        }
+      ],
+      "rules": []
+    }
+  ],
   "enums": [],
   "unions": []
 }

@@ -1,0 +1,2384 @@
+{
+  "kind": "idl",
+  "offset": 0,
+  "length": 1115,
+  "text": "namespace example.tasks.kdsafhjlafsdklhj\n\n// Define a basic Task shape\nstructure Task {\n    @required\n    id: String\n    title: String\n    description: String\n    completed: Boolean\n}\n\n// Request and Response shapes for the operations\nstructure CreateTaskInput {\n    @required\n    title: String\n    description: String\n}\n\nstructure CreateTaskOutput {\n    @required\n    task: Task\n}\n\nstructure ListTasksOutput {\n    @required\n    tasks: TaskList\n}\n\nstructure DeleteTaskInput {\n    @required\n    id: String\n}\n\n// A list of tasks\nlist TaskList {\n    member: Task\n}\n\n// Define the Task service and its operations\n@restJson1\nservice TaskService {\n    version: \"2024-09-22\"\n    operations: [CreateTask, ListTasks, DeleteTask]\n}\n\n// Operations for creating, listing, and deleting tasks\n@http(method: \"POST\", uri: \"/tasks\", code: 201)\noperation CreateTask {\n    input: CreateTaskInput\n    output: CreateTaskOutput\n}\n\n@http(method: \"GET\", uri: \"/tasks\", code: 200)\noperation ListTasks {\n    output: ListTasksOutput\n}\n\n@http(method: \"DELETE\", uri: \"/tasks/{id}\", code: 204)\noperation DeleteTask {\n    input: DeleteTaskInput\n}",
+  "children": [
+    {
+      "kind": "ControlSection",
+      "offset": 0,
+      "length": 0,
+      "text": "",
+      "children": []
+    },
+    {
+      "kind": "MetadataSection",
+      "offset": 0,
+      "length": 0,
+      "text": "",
+      "children": []
+    },
+    {
+      "kind": "ShapeSection",
+      "offset": 0,
+      "length": 1115,
+      "text": "namespace example.tasks.kdsafhjlafsdklhj\n\n// Define a basic Task shape\nstructure Task {\n    @required\n    id: String\n    title: String\n    description: String\n    completed: Boolean\n}\n\n// Request and Response shapes for the operations\nstructure CreateTaskInput {\n    @required\n    title: String\n    description: String\n}\n\nstructure CreateTaskOutput {\n    @required\n    task: Task\n}\n\nstructure ListTasksOutput {\n    @required\n    tasks: TaskList\n}\n\nstructure DeleteTaskInput {\n    @required\n    id: String\n}\n\n// A list of tasks\nlist TaskList {\n    member: Task\n}\n\n// Define the Task service and its operations\n@restJson1\nservice TaskService {\n    version: \"2024-09-22\"\n    operations: [CreateTask, ListTasks, DeleteTask]\n}\n\n// Operations for creating, listing, and deleting tasks\n@http(method: \"POST\", uri: \"/tasks\", code: 201)\noperation CreateTask {\n    input: CreateTaskInput\n    output: CreateTaskOutput\n}\n\n@http(method: \"GET\", uri: \"/tasks\", code: 200)\noperation ListTasks {\n    output: ListTasksOutput\n}\n\n@http(method: \"DELETE\", uri: \"/tasks/{id}\", code: 204)\noperation DeleteTask {\n    input: DeleteTaskInput\n}",
+      "children": [
+        {
+          "kind": "NamespaceStatement",
+          "offset": 0,
+          "length": 71,
+          "text": "namespace example.tasks.kdsafhjlafsdklhj\n\n// Define a basic Task shape\n",
+          "children": [
+            {
+              "kind": "Namespace",
+              "offset": 10,
+              "length": 30,
+              "text": "example.tasks.kdsafhjlafsdklhj",
+              "children": [
+                {
+                  "kind": "Identifier",
+                  "offset": 10,
+                  "length": 7,
+                  "text": "example",
+                  "children": []
+                },
+                {
+                  "kind": "Identifier",
+                  "offset": 18,
+                  "length": 5,
+                  "text": "tasks",
+                  "children": []
+                },
+                {
+                  "kind": "Identifier",
+                  "offset": 24,
+                  "length": 16,
+                  "text": "kdsafhjlafsdklhj",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "kind": "Comment",
+              "offset": 42,
+              "length": 29,
+              "text": "// Define a basic Task shape\n",
+              "children": [
+                {
+                  "kind": "LineComment",
+                  "offset": 42,
+                  "length": 29,
+                  "text": "// Define a basic Task shape\n",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "UseSection",
+          "offset": 71,
+          "length": 0,
+          "text": "",
+          "children": []
+        },
+        {
+          "kind": "ShapeStatements",
+          "offset": 71,
+          "length": 1044,
+          "text": "structure Task {\n    @required\n    id: String\n    title: String\n    description: String\n    completed: Boolean\n}\n\n// Request and Response shapes for the operations\nstructure CreateTaskInput {\n    @required\n    title: String\n    description: String\n}\n\nstructure CreateTaskOutput {\n    @required\n    task: Task\n}\n\nstructure ListTasksOutput {\n    @required\n    tasks: TaskList\n}\n\nstructure DeleteTaskInput {\n    @required\n    id: String\n}\n\n// A list of tasks\nlist TaskList {\n    member: Task\n}\n\n// Define the Task service and its operations\n@restJson1\nservice TaskService {\n    version: \"2024-09-22\"\n    operations: [CreateTask, ListTasks, DeleteTask]\n}\n\n// Operations for creating, listing, and deleting tasks\n@http(method: \"POST\", uri: \"/tasks\", code: 201)\noperation CreateTask {\n    input: CreateTaskInput\n    output: CreateTaskOutput\n}\n\n@http(method: \"GET\", uri: \"/tasks\", code: 200)\noperation ListTasks {\n    output: ListTasksOutput\n}\n\n@http(method: \"DELETE\", uri: \"/tasks/{id}\", code: 204)\noperation DeleteTask {\n    input: DeleteTaskInput\n}",
+          "children": [
+            {
+              "kind": "ShapeOrApplyStatement",
+              "offset": 71,
+              "length": 112,
+              "text": "structure Task {\n    @required\n    id: String\n    title: String\n    description: String\n    completed: Boolean\n}",
+              "children": [
+                {
+                  "kind": "ShapeStatement",
+                  "offset": 71,
+                  "length": 112,
+                  "text": "structure Task {\n    @required\n    id: String\n    title: String\n    description: String\n    completed: Boolean\n}",
+                  "children": [
+                    {
+                      "kind": "TraitStatements",
+                      "offset": 71,
+                      "length": 0,
+                      "text": "",
+                      "children": []
+                    },
+                    {
+                      "kind": "Shape",
+                      "offset": 71,
+                      "length": 112,
+                      "text": "structure Task {\n    @required\n    id: String\n    title: String\n    description: String\n    completed: Boolean\n}",
+                      "children": [
+                        {
+                          "kind": "AggregateShape",
+                          "offset": 71,
+                          "length": 112,
+                          "text": "structure Task {\n    @required\n    id: String\n    title: String\n    description: String\n    completed: Boolean\n}",
+                          "children": [
+                            {
+                              "kind": "AggregateTypeName",
+                              "offset": 71,
+                              "length": 9,
+                              "text": "structure",
+                              "children": []
+                            },
+                            {
+                              "kind": "Identifier",
+                              "offset": 81,
+                              "length": 4,
+                              "text": "Task",
+                              "children": []
+                            },
+                            {
+                              "kind": "ShapeMembers",
+                              "offset": 86,
+                              "length": 97,
+                              "text": "{\n    @required\n    id: String\n    title: String\n    description: String\n    completed: Boolean\n}",
+                              "children": [
+                                {
+                                  "kind": "ShapeMember",
+                                  "offset": 92,
+                                  "length": 24,
+                                  "text": "@required\n    id: String",
+                                  "children": [
+                                    {
+                                      "kind": "TraitStatements",
+                                      "offset": 92,
+                                      "length": 14,
+                                      "text": "@required\n    ",
+                                      "children": [
+                                        {
+                                          "kind": "Trait",
+                                          "offset": 92,
+                                          "length": 9,
+                                          "text": "@required",
+                                          "children": [
+                                            {
+                                              "kind": "ShapeId",
+                                              "offset": 93,
+                                              "length": 8,
+                                              "text": "required",
+                                              "children": [
+                                                {
+                                                  "kind": "RootShapeId",
+                                                  "offset": 93,
+                                                  "length": 8,
+                                                  "text": "required",
+                                                  "children": [
+                                                    {
+                                                      "kind": "Identifier",
+                                                      "offset": 93,
+                                                      "length": 8,
+                                                      "text": "required",
+                                                      "children": []
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "kind": "ExplicitShapeMember",
+                                      "offset": 106,
+                                      "length": 10,
+                                      "text": "id: String",
+                                      "children": [
+                                        {
+                                          "kind": "Identifier",
+                                          "offset": 106,
+                                          "length": 2,
+                                          "text": "id",
+                                          "children": []
+                                        },
+                                        {
+                                          "kind": "ShapeId",
+                                          "offset": 110,
+                                          "length": 6,
+                                          "text": "String",
+                                          "children": [
+                                            {
+                                              "kind": "RootShapeId",
+                                              "offset": 110,
+                                              "length": 6,
+                                              "text": "String",
+                                              "children": [
+                                                {
+                                                  "kind": "Identifier",
+                                                  "offset": 110,
+                                                  "length": 6,
+                                                  "text": "String",
+                                                  "children": []
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "kind": "ShapeMember",
+                                  "offset": 121,
+                                  "length": 13,
+                                  "text": "title: String",
+                                  "children": [
+                                    {
+                                      "kind": "TraitStatements",
+                                      "offset": 121,
+                                      "length": 0,
+                                      "text": "",
+                                      "children": []
+                                    },
+                                    {
+                                      "kind": "ExplicitShapeMember",
+                                      "offset": 121,
+                                      "length": 13,
+                                      "text": "title: String",
+                                      "children": [
+                                        {
+                                          "kind": "Identifier",
+                                          "offset": 121,
+                                          "length": 5,
+                                          "text": "title",
+                                          "children": []
+                                        },
+                                        {
+                                          "kind": "ShapeId",
+                                          "offset": 128,
+                                          "length": 6,
+                                          "text": "String",
+                                          "children": [
+                                            {
+                                              "kind": "RootShapeId",
+                                              "offset": 128,
+                                              "length": 6,
+                                              "text": "String",
+                                              "children": [
+                                                {
+                                                  "kind": "Identifier",
+                                                  "offset": 128,
+                                                  "length": 6,
+                                                  "text": "String",
+                                                  "children": []
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "kind": "ShapeMember",
+                                  "offset": 139,
+                                  "length": 19,
+                                  "text": "description: String",
+                                  "children": [
+                                    {
+                                      "kind": "TraitStatements",
+                                      "offset": 139,
+                                      "length": 0,
+                                      "text": "",
+                                      "children": []
+                                    },
+                                    {
+                                      "kind": "ExplicitShapeMember",
+                                      "offset": 139,
+                                      "length": 19,
+                                      "text": "description: String",
+                                      "children": [
+                                        {
+                                          "kind": "Identifier",
+                                          "offset": 139,
+                                          "length": 11,
+                                          "text": "description",
+                                          "children": []
+                                        },
+                                        {
+                                          "kind": "ShapeId",
+                                          "offset": 152,
+                                          "length": 6,
+                                          "text": "String",
+                                          "children": [
+                                            {
+                                              "kind": "RootShapeId",
+                                              "offset": 152,
+                                              "length": 6,
+                                              "text": "String",
+                                              "children": [
+                                                {
+                                                  "kind": "Identifier",
+                                                  "offset": 152,
+                                                  "length": 6,
+                                                  "text": "String",
+                                                  "children": []
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "kind": "ShapeMember",
+                                  "offset": 163,
+                                  "length": 18,
+                                  "text": "completed: Boolean",
+                                  "children": [
+                                    {
+                                      "kind": "TraitStatements",
+                                      "offset": 163,
+                                      "length": 0,
+                                      "text": "",
+                                      "children": []
+                                    },
+                                    {
+                                      "kind": "ExplicitShapeMember",
+                                      "offset": 163,
+                                      "length": 18,
+                                      "text": "completed: Boolean",
+                                      "children": [
+                                        {
+                                          "kind": "Identifier",
+                                          "offset": 163,
+                                          "length": 9,
+                                          "text": "completed",
+                                          "children": []
+                                        },
+                                        {
+                                          "kind": "ShapeId",
+                                          "offset": 174,
+                                          "length": 7,
+                                          "text": "Boolean",
+                                          "children": [
+                                            {
+                                              "kind": "RootShapeId",
+                                              "offset": 174,
+                                              "length": 7,
+                                              "text": "Boolean",
+                                              "children": [
+                                                {
+                                                  "kind": "Identifier",
+                                                  "offset": 174,
+                                                  "length": 7,
+                                                  "text": "Boolean",
+                                                  "children": []
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "Comment",
+              "offset": 185,
+              "length": 50,
+              "text": "// Request and Response shapes for the operations\n",
+              "children": [
+                {
+                  "kind": "LineComment",
+                  "offset": 185,
+                  "length": 50,
+                  "text": "// Request and Response shapes for the operations\n",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "kind": "ShapeOrApplyStatement",
+              "offset": 235,
+              "length": 85,
+              "text": "structure CreateTaskInput {\n    @required\n    title: String\n    description: String\n}",
+              "children": [
+                {
+                  "kind": "ShapeStatement",
+                  "offset": 235,
+                  "length": 85,
+                  "text": "structure CreateTaskInput {\n    @required\n    title: String\n    description: String\n}",
+                  "children": [
+                    {
+                      "kind": "TraitStatements",
+                      "offset": 235,
+                      "length": 0,
+                      "text": "",
+                      "children": []
+                    },
+                    {
+                      "kind": "Shape",
+                      "offset": 235,
+                      "length": 85,
+                      "text": "structure CreateTaskInput {\n    @required\n    title: String\n    description: String\n}",
+                      "children": [
+                        {
+                          "kind": "AggregateShape",
+                          "offset": 235,
+                          "length": 85,
+                          "text": "structure CreateTaskInput {\n    @required\n    title: String\n    description: String\n}",
+                          "children": [
+                            {
+                              "kind": "AggregateTypeName",
+                              "offset": 235,
+                              "length": 9,
+                              "text": "structure",
+                              "children": []
+                            },
+                            {
+                              "kind": "Identifier",
+                              "offset": 245,
+                              "length": 15,
+                              "text": "CreateTaskInput",
+                              "children": []
+                            },
+                            {
+                              "kind": "ShapeMembers",
+                              "offset": 261,
+                              "length": 59,
+                              "text": "{\n    @required\n    title: String\n    description: String\n}",
+                              "children": [
+                                {
+                                  "kind": "ShapeMember",
+                                  "offset": 267,
+                                  "length": 27,
+                                  "text": "@required\n    title: String",
+                                  "children": [
+                                    {
+                                      "kind": "TraitStatements",
+                                      "offset": 267,
+                                      "length": 14,
+                                      "text": "@required\n    ",
+                                      "children": [
+                                        {
+                                          "kind": "Trait",
+                                          "offset": 267,
+                                          "length": 9,
+                                          "text": "@required",
+                                          "children": [
+                                            {
+                                              "kind": "ShapeId",
+                                              "offset": 268,
+                                              "length": 8,
+                                              "text": "required",
+                                              "children": [
+                                                {
+                                                  "kind": "RootShapeId",
+                                                  "offset": 268,
+                                                  "length": 8,
+                                                  "text": "required",
+                                                  "children": [
+                                                    {
+                                                      "kind": "Identifier",
+                                                      "offset": 268,
+                                                      "length": 8,
+                                                      "text": "required",
+                                                      "children": []
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "kind": "ExplicitShapeMember",
+                                      "offset": 281,
+                                      "length": 13,
+                                      "text": "title: String",
+                                      "children": [
+                                        {
+                                          "kind": "Identifier",
+                                          "offset": 281,
+                                          "length": 5,
+                                          "text": "title",
+                                          "children": []
+                                        },
+                                        {
+                                          "kind": "ShapeId",
+                                          "offset": 288,
+                                          "length": 6,
+                                          "text": "String",
+                                          "children": [
+                                            {
+                                              "kind": "RootShapeId",
+                                              "offset": 288,
+                                              "length": 6,
+                                              "text": "String",
+                                              "children": [
+                                                {
+                                                  "kind": "Identifier",
+                                                  "offset": 288,
+                                                  "length": 6,
+                                                  "text": "String",
+                                                  "children": []
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "kind": "ShapeMember",
+                                  "offset": 299,
+                                  "length": 19,
+                                  "text": "description: String",
+                                  "children": [
+                                    {
+                                      "kind": "TraitStatements",
+                                      "offset": 299,
+                                      "length": 0,
+                                      "text": "",
+                                      "children": []
+                                    },
+                                    {
+                                      "kind": "ExplicitShapeMember",
+                                      "offset": 299,
+                                      "length": 19,
+                                      "text": "description: String",
+                                      "children": [
+                                        {
+                                          "kind": "Identifier",
+                                          "offset": 299,
+                                          "length": 11,
+                                          "text": "description",
+                                          "children": []
+                                        },
+                                        {
+                                          "kind": "ShapeId",
+                                          "offset": 312,
+                                          "length": 6,
+                                          "text": "String",
+                                          "children": [
+                                            {
+                                              "kind": "RootShapeId",
+                                              "offset": 312,
+                                              "length": 6,
+                                              "text": "String",
+                                              "children": [
+                                                {
+                                                  "kind": "Identifier",
+                                                  "offset": 312,
+                                                  "length": 6,
+                                                  "text": "String",
+                                                  "children": []
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "ShapeOrApplyStatement",
+              "offset": 322,
+              "length": 59,
+              "text": "structure CreateTaskOutput {\n    @required\n    task: Task\n}",
+              "children": [
+                {
+                  "kind": "ShapeStatement",
+                  "offset": 322,
+                  "length": 59,
+                  "text": "structure CreateTaskOutput {\n    @required\n    task: Task\n}",
+                  "children": [
+                    {
+                      "kind": "TraitStatements",
+                      "offset": 322,
+                      "length": 0,
+                      "text": "",
+                      "children": []
+                    },
+                    {
+                      "kind": "Shape",
+                      "offset": 322,
+                      "length": 59,
+                      "text": "structure CreateTaskOutput {\n    @required\n    task: Task\n}",
+                      "children": [
+                        {
+                          "kind": "AggregateShape",
+                          "offset": 322,
+                          "length": 59,
+                          "text": "structure CreateTaskOutput {\n    @required\n    task: Task\n}",
+                          "children": [
+                            {
+                              "kind": "AggregateTypeName",
+                              "offset": 322,
+                              "length": 9,
+                              "text": "structure",
+                              "children": []
+                            },
+                            {
+                              "kind": "Identifier",
+                              "offset": 332,
+                              "length": 16,
+                              "text": "CreateTaskOutput",
+                              "children": []
+                            },
+                            {
+                              "kind": "ShapeMembers",
+                              "offset": 349,
+                              "length": 32,
+                              "text": "{\n    @required\n    task: Task\n}",
+                              "children": [
+                                {
+                                  "kind": "ShapeMember",
+                                  "offset": 355,
+                                  "length": 24,
+                                  "text": "@required\n    task: Task",
+                                  "children": [
+                                    {
+                                      "kind": "TraitStatements",
+                                      "offset": 355,
+                                      "length": 14,
+                                      "text": "@required\n    ",
+                                      "children": [
+                                        {
+                                          "kind": "Trait",
+                                          "offset": 355,
+                                          "length": 9,
+                                          "text": "@required",
+                                          "children": [
+                                            {
+                                              "kind": "ShapeId",
+                                              "offset": 356,
+                                              "length": 8,
+                                              "text": "required",
+                                              "children": [
+                                                {
+                                                  "kind": "RootShapeId",
+                                                  "offset": 356,
+                                                  "length": 8,
+                                                  "text": "required",
+                                                  "children": [
+                                                    {
+                                                      "kind": "Identifier",
+                                                      "offset": 356,
+                                                      "length": 8,
+                                                      "text": "required",
+                                                      "children": []
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "kind": "ExplicitShapeMember",
+                                      "offset": 369,
+                                      "length": 10,
+                                      "text": "task: Task",
+                                      "children": [
+                                        {
+                                          "kind": "Identifier",
+                                          "offset": 369,
+                                          "length": 4,
+                                          "text": "task",
+                                          "children": []
+                                        },
+                                        {
+                                          "kind": "ShapeId",
+                                          "offset": 375,
+                                          "length": 4,
+                                          "text": "Task",
+                                          "children": [
+                                            {
+                                              "kind": "RootShapeId",
+                                              "offset": 375,
+                                              "length": 4,
+                                              "text": "Task",
+                                              "children": [
+                                                {
+                                                  "kind": "Identifier",
+                                                  "offset": 375,
+                                                  "length": 4,
+                                                  "text": "Task",
+                                                  "children": []
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "ShapeOrApplyStatement",
+              "offset": 383,
+              "length": 63,
+              "text": "structure ListTasksOutput {\n    @required\n    tasks: TaskList\n}",
+              "children": [
+                {
+                  "kind": "ShapeStatement",
+                  "offset": 383,
+                  "length": 63,
+                  "text": "structure ListTasksOutput {\n    @required\n    tasks: TaskList\n}",
+                  "children": [
+                    {
+                      "kind": "TraitStatements",
+                      "offset": 383,
+                      "length": 0,
+                      "text": "",
+                      "children": []
+                    },
+                    {
+                      "kind": "Shape",
+                      "offset": 383,
+                      "length": 63,
+                      "text": "structure ListTasksOutput {\n    @required\n    tasks: TaskList\n}",
+                      "children": [
+                        {
+                          "kind": "AggregateShape",
+                          "offset": 383,
+                          "length": 63,
+                          "text": "structure ListTasksOutput {\n    @required\n    tasks: TaskList\n}",
+                          "children": [
+                            {
+                              "kind": "AggregateTypeName",
+                              "offset": 383,
+                              "length": 9,
+                              "text": "structure",
+                              "children": []
+                            },
+                            {
+                              "kind": "Identifier",
+                              "offset": 393,
+                              "length": 15,
+                              "text": "ListTasksOutput",
+                              "children": []
+                            },
+                            {
+                              "kind": "ShapeMembers",
+                              "offset": 409,
+                              "length": 37,
+                              "text": "{\n    @required\n    tasks: TaskList\n}",
+                              "children": [
+                                {
+                                  "kind": "ShapeMember",
+                                  "offset": 415,
+                                  "length": 29,
+                                  "text": "@required\n    tasks: TaskList",
+                                  "children": [
+                                    {
+                                      "kind": "TraitStatements",
+                                      "offset": 415,
+                                      "length": 14,
+                                      "text": "@required\n    ",
+                                      "children": [
+                                        {
+                                          "kind": "Trait",
+                                          "offset": 415,
+                                          "length": 9,
+                                          "text": "@required",
+                                          "children": [
+                                            {
+                                              "kind": "ShapeId",
+                                              "offset": 416,
+                                              "length": 8,
+                                              "text": "required",
+                                              "children": [
+                                                {
+                                                  "kind": "RootShapeId",
+                                                  "offset": 416,
+                                                  "length": 8,
+                                                  "text": "required",
+                                                  "children": [
+                                                    {
+                                                      "kind": "Identifier",
+                                                      "offset": 416,
+                                                      "length": 8,
+                                                      "text": "required",
+                                                      "children": []
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "kind": "ExplicitShapeMember",
+                                      "offset": 429,
+                                      "length": 15,
+                                      "text": "tasks: TaskList",
+                                      "children": [
+                                        {
+                                          "kind": "Identifier",
+                                          "offset": 429,
+                                          "length": 5,
+                                          "text": "tasks",
+                                          "children": []
+                                        },
+                                        {
+                                          "kind": "ShapeId",
+                                          "offset": 436,
+                                          "length": 8,
+                                          "text": "TaskList",
+                                          "children": [
+                                            {
+                                              "kind": "RootShapeId",
+                                              "offset": 436,
+                                              "length": 8,
+                                              "text": "TaskList",
+                                              "children": [
+                                                {
+                                                  "kind": "Identifier",
+                                                  "offset": 436,
+                                                  "length": 8,
+                                                  "text": "TaskList",
+                                                  "children": []
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "ShapeOrApplyStatement",
+              "offset": 448,
+              "length": 58,
+              "text": "structure DeleteTaskInput {\n    @required\n    id: String\n}",
+              "children": [
+                {
+                  "kind": "ShapeStatement",
+                  "offset": 448,
+                  "length": 58,
+                  "text": "structure DeleteTaskInput {\n    @required\n    id: String\n}",
+                  "children": [
+                    {
+                      "kind": "TraitStatements",
+                      "offset": 448,
+                      "length": 0,
+                      "text": "",
+                      "children": []
+                    },
+                    {
+                      "kind": "Shape",
+                      "offset": 448,
+                      "length": 58,
+                      "text": "structure DeleteTaskInput {\n    @required\n    id: String\n}",
+                      "children": [
+                        {
+                          "kind": "AggregateShape",
+                          "offset": 448,
+                          "length": 58,
+                          "text": "structure DeleteTaskInput {\n    @required\n    id: String\n}",
+                          "children": [
+                            {
+                              "kind": "AggregateTypeName",
+                              "offset": 448,
+                              "length": 9,
+                              "text": "structure",
+                              "children": []
+                            },
+                            {
+                              "kind": "Identifier",
+                              "offset": 458,
+                              "length": 15,
+                              "text": "DeleteTaskInput",
+                              "children": []
+                            },
+                            {
+                              "kind": "ShapeMembers",
+                              "offset": 474,
+                              "length": 32,
+                              "text": "{\n    @required\n    id: String\n}",
+                              "children": [
+                                {
+                                  "kind": "ShapeMember",
+                                  "offset": 480,
+                                  "length": 24,
+                                  "text": "@required\n    id: String",
+                                  "children": [
+                                    {
+                                      "kind": "TraitStatements",
+                                      "offset": 480,
+                                      "length": 14,
+                                      "text": "@required\n    ",
+                                      "children": [
+                                        {
+                                          "kind": "Trait",
+                                          "offset": 480,
+                                          "length": 9,
+                                          "text": "@required",
+                                          "children": [
+                                            {
+                                              "kind": "ShapeId",
+                                              "offset": 481,
+                                              "length": 8,
+                                              "text": "required",
+                                              "children": [
+                                                {
+                                                  "kind": "RootShapeId",
+                                                  "offset": 481,
+                                                  "length": 8,
+                                                  "text": "required",
+                                                  "children": [
+                                                    {
+                                                      "kind": "Identifier",
+                                                      "offset": 481,
+                                                      "length": 8,
+                                                      "text": "required",
+                                                      "children": []
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "kind": "ExplicitShapeMember",
+                                      "offset": 494,
+                                      "length": 10,
+                                      "text": "id: String",
+                                      "children": [
+                                        {
+                                          "kind": "Identifier",
+                                          "offset": 494,
+                                          "length": 2,
+                                          "text": "id",
+                                          "children": []
+                                        },
+                                        {
+                                          "kind": "ShapeId",
+                                          "offset": 498,
+                                          "length": 6,
+                                          "text": "String",
+                                          "children": [
+                                            {
+                                              "kind": "RootShapeId",
+                                              "offset": 498,
+                                              "length": 6,
+                                              "text": "String",
+                                              "children": [
+                                                {
+                                                  "kind": "Identifier",
+                                                  "offset": 498,
+                                                  "length": 6,
+                                                  "text": "String",
+                                                  "children": []
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "Comment",
+              "offset": 508,
+              "length": 19,
+              "text": "// A list of tasks\n",
+              "children": [
+                {
+                  "kind": "LineComment",
+                  "offset": 508,
+                  "length": 19,
+                  "text": "// A list of tasks\n",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "kind": "ShapeOrApplyStatement",
+              "offset": 527,
+              "length": 34,
+              "text": "list TaskList {\n    member: Task\n}",
+              "children": [
+                {
+                  "kind": "ShapeStatement",
+                  "offset": 527,
+                  "length": 34,
+                  "text": "list TaskList {\n    member: Task\n}",
+                  "children": [
+                    {
+                      "kind": "TraitStatements",
+                      "offset": 527,
+                      "length": 0,
+                      "text": "",
+                      "children": []
+                    },
+                    {
+                      "kind": "Shape",
+                      "offset": 527,
+                      "length": 34,
+                      "text": "list TaskList {\n    member: Task\n}",
+                      "children": [
+                        {
+                          "kind": "AggregateShape",
+                          "offset": 527,
+                          "length": 34,
+                          "text": "list TaskList {\n    member: Task\n}",
+                          "children": [
+                            {
+                              "kind": "AggregateTypeName",
+                              "offset": 527,
+                              "length": 4,
+                              "text": "list",
+                              "children": []
+                            },
+                            {
+                              "kind": "Identifier",
+                              "offset": 532,
+                              "length": 8,
+                              "text": "TaskList",
+                              "children": []
+                            },
+                            {
+                              "kind": "ShapeMembers",
+                              "offset": 541,
+                              "length": 20,
+                              "text": "{\n    member: Task\n}",
+                              "children": [
+                                {
+                                  "kind": "ShapeMember",
+                                  "offset": 547,
+                                  "length": 12,
+                                  "text": "member: Task",
+                                  "children": [
+                                    {
+                                      "kind": "TraitStatements",
+                                      "offset": 547,
+                                      "length": 0,
+                                      "text": "",
+                                      "children": []
+                                    },
+                                    {
+                                      "kind": "ExplicitShapeMember",
+                                      "offset": 547,
+                                      "length": 12,
+                                      "text": "member: Task",
+                                      "children": [
+                                        {
+                                          "kind": "Identifier",
+                                          "offset": 547,
+                                          "length": 6,
+                                          "text": "member",
+                                          "children": []
+                                        },
+                                        {
+                                          "kind": "ShapeId",
+                                          "offset": 555,
+                                          "length": 4,
+                                          "text": "Task",
+                                          "children": [
+                                            {
+                                              "kind": "RootShapeId",
+                                              "offset": 555,
+                                              "length": 4,
+                                              "text": "Task",
+                                              "children": [
+                                                {
+                                                  "kind": "Identifier",
+                                                  "offset": 555,
+                                                  "length": 4,
+                                                  "text": "Task",
+                                                  "children": []
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "Comment",
+              "offset": 563,
+              "length": 46,
+              "text": "// Define the Task service and its operations\n",
+              "children": [
+                {
+                  "kind": "LineComment",
+                  "offset": 563,
+                  "length": 46,
+                  "text": "// Define the Task service and its operations\n",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "kind": "ShapeOrApplyStatement",
+              "offset": 609,
+              "length": 112,
+              "text": "@restJson1\nservice TaskService {\n    version: \"2024-09-22\"\n    operations: [CreateTask, ListTasks, DeleteTask]\n}",
+              "children": [
+                {
+                  "kind": "ShapeStatement",
+                  "offset": 609,
+                  "length": 112,
+                  "text": "@restJson1\nservice TaskService {\n    version: \"2024-09-22\"\n    operations: [CreateTask, ListTasks, DeleteTask]\n}",
+                  "children": [
+                    {
+                      "kind": "TraitStatements",
+                      "offset": 609,
+                      "length": 11,
+                      "text": "@restJson1\n",
+                      "children": [
+                        {
+                          "kind": "Trait",
+                          "offset": 609,
+                          "length": 10,
+                          "text": "@restJson1",
+                          "children": [
+                            {
+                              "kind": "ShapeId",
+                              "offset": 610,
+                              "length": 9,
+                              "text": "restJson1",
+                              "children": [
+                                {
+                                  "kind": "RootShapeId",
+                                  "offset": 610,
+                                  "length": 9,
+                                  "text": "restJson1",
+                                  "children": [
+                                    {
+                                      "kind": "Identifier",
+                                      "offset": 610,
+                                      "length": 9,
+                                      "text": "restJson1",
+                                      "children": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "Shape",
+                      "offset": 620,
+                      "length": 101,
+                      "text": "service TaskService {\n    version: \"2024-09-22\"\n    operations: [CreateTask, ListTasks, DeleteTask]\n}",
+                      "children": [
+                        {
+                          "kind": "EntityShape",
+                          "offset": 620,
+                          "length": 101,
+                          "text": "service TaskService {\n    version: \"2024-09-22\"\n    operations: [CreateTask, ListTasks, DeleteTask]\n}",
+                          "children": [
+                            {
+                              "kind": "EntityTypeName",
+                              "offset": 620,
+                              "length": 7,
+                              "text": "service",
+                              "children": []
+                            },
+                            {
+                              "kind": "Identifier",
+                              "offset": 628,
+                              "length": 11,
+                              "text": "TaskService",
+                              "children": []
+                            },
+                            {
+                              "kind": "NodeObject",
+                              "offset": 640,
+                              "length": 81,
+                              "text": "{\n    version: \"2024-09-22\"\n    operations: [CreateTask, ListTasks, DeleteTask]\n}",
+                              "children": [
+                                {
+                                  "kind": "NodeObjectKvp",
+                                  "offset": 646,
+                                  "length": 21,
+                                  "text": "version: \"2024-09-22\"",
+                                  "children": [
+                                    {
+                                      "kind": "NodeObjectKey",
+                                      "offset": 646,
+                                      "length": 7,
+                                      "text": "version",
+                                      "children": [
+                                        {
+                                          "kind": "Identifier",
+                                          "offset": 646,
+                                          "length": 7,
+                                          "text": "version",
+                                          "children": []
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "kind": "NodeValue",
+                                      "offset": 655,
+                                      "length": 12,
+                                      "text": "\"2024-09-22\"",
+                                      "children": [
+                                        {
+                                          "kind": "NodeStringValue",
+                                          "offset": 655,
+                                          "length": 12,
+                                          "text": "\"2024-09-22\"",
+                                          "children": [
+                                            {
+                                              "kind": "QuotedText",
+                                              "offset": 655,
+                                              "length": 12,
+                                              "text": "\"2024-09-22\"",
+                                              "children": []
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "kind": "NodeObjectKvp",
+                                  "offset": 672,
+                                  "length": 47,
+                                  "text": "operations: [CreateTask, ListTasks, DeleteTask]",
+                                  "children": [
+                                    {
+                                      "kind": "NodeObjectKey",
+                                      "offset": 672,
+                                      "length": 10,
+                                      "text": "operations",
+                                      "children": [
+                                        {
+                                          "kind": "Identifier",
+                                          "offset": 672,
+                                          "length": 10,
+                                          "text": "operations",
+                                          "children": []
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "kind": "NodeValue",
+                                      "offset": 684,
+                                      "length": 35,
+                                      "text": "[CreateTask, ListTasks, DeleteTask]",
+                                      "children": [
+                                        {
+                                          "kind": "NodeArray",
+                                          "offset": 684,
+                                          "length": 35,
+                                          "text": "[CreateTask, ListTasks, DeleteTask]",
+                                          "children": [
+                                            {
+                                              "kind": "NodeValue",
+                                              "offset": 685,
+                                              "length": 10,
+                                              "text": "CreateTask",
+                                              "children": [
+                                                {
+                                                  "kind": "NodeStringValue",
+                                                  "offset": 685,
+                                                  "length": 10,
+                                                  "text": "CreateTask",
+                                                  "children": [
+                                                    {
+                                                      "kind": "ShapeId",
+                                                      "offset": 685,
+                                                      "length": 10,
+                                                      "text": "CreateTask",
+                                                      "children": [
+                                                        {
+                                                          "kind": "RootShapeId",
+                                                          "offset": 685,
+                                                          "length": 10,
+                                                          "text": "CreateTask",
+                                                          "children": [
+                                                            {
+                                                              "kind": "Identifier",
+                                                              "offset": 685,
+                                                              "length": 10,
+                                                              "text": "CreateTask",
+                                                              "children": []
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "kind": "NodeValue",
+                                              "offset": 697,
+                                              "length": 9,
+                                              "text": "ListTasks",
+                                              "children": [
+                                                {
+                                                  "kind": "NodeStringValue",
+                                                  "offset": 697,
+                                                  "length": 9,
+                                                  "text": "ListTasks",
+                                                  "children": [
+                                                    {
+                                                      "kind": "ShapeId",
+                                                      "offset": 697,
+                                                      "length": 9,
+                                                      "text": "ListTasks",
+                                                      "children": [
+                                                        {
+                                                          "kind": "RootShapeId",
+                                                          "offset": 697,
+                                                          "length": 9,
+                                                          "text": "ListTasks",
+                                                          "children": [
+                                                            {
+                                                              "kind": "Identifier",
+                                                              "offset": 697,
+                                                              "length": 9,
+                                                              "text": "ListTasks",
+                                                              "children": []
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "kind": "NodeValue",
+                                              "offset": 708,
+                                              "length": 10,
+                                              "text": "DeleteTask",
+                                              "children": [
+                                                {
+                                                  "kind": "NodeStringValue",
+                                                  "offset": 708,
+                                                  "length": 10,
+                                                  "text": "DeleteTask",
+                                                  "children": [
+                                                    {
+                                                      "kind": "ShapeId",
+                                                      "offset": 708,
+                                                      "length": 10,
+                                                      "text": "DeleteTask",
+                                                      "children": [
+                                                        {
+                                                          "kind": "RootShapeId",
+                                                          "offset": 708,
+                                                          "length": 10,
+                                                          "text": "DeleteTask",
+                                                          "children": [
+                                                            {
+                                                              "kind": "Identifier",
+                                                              "offset": 708,
+                                                              "length": 10,
+                                                              "text": "DeleteTask",
+                                                              "children": []
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "Comment",
+              "offset": 723,
+              "length": 56,
+              "text": "// Operations for creating, listing, and deleting tasks\n",
+              "children": [
+                {
+                  "kind": "LineComment",
+                  "offset": 723,
+                  "length": 56,
+                  "text": "// Operations for creating, listing, and deleting tasks\n",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "kind": "ShapeOrApplyStatement",
+              "offset": 779,
+              "length": 128,
+              "text": "@http(method: \"POST\", uri: \"/tasks\", code: 201)\noperation CreateTask {\n    input: CreateTaskInput\n    output: CreateTaskOutput\n}",
+              "children": [
+                {
+                  "kind": "ShapeStatement",
+                  "offset": 779,
+                  "length": 128,
+                  "text": "@http(method: \"POST\", uri: \"/tasks\", code: 201)\noperation CreateTask {\n    input: CreateTaskInput\n    output: CreateTaskOutput\n}",
+                  "children": [
+                    {
+                      "kind": "TraitStatements",
+                      "offset": 779,
+                      "length": 48,
+                      "text": "@http(method: \"POST\", uri: \"/tasks\", code: 201)\n",
+                      "children": [
+                        {
+                          "kind": "Trait",
+                          "offset": 779,
+                          "length": 47,
+                          "text": "@http(method: \"POST\", uri: \"/tasks\", code: 201)",
+                          "children": [
+                            {
+                              "kind": "ShapeId",
+                              "offset": 780,
+                              "length": 4,
+                              "text": "http",
+                              "children": [
+                                {
+                                  "kind": "RootShapeId",
+                                  "offset": 780,
+                                  "length": 4,
+                                  "text": "http",
+                                  "children": [
+                                    {
+                                      "kind": "Identifier",
+                                      "offset": 780,
+                                      "length": 4,
+                                      "text": "http",
+                                      "children": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "kind": "TraitBody",
+                              "offset": 784,
+                              "length": 42,
+                              "text": "(method: \"POST\", uri: \"/tasks\", code: 201)",
+                              "children": [
+                                {
+                                  "kind": "TraitStructure",
+                                  "offset": 785,
+                                  "length": 40,
+                                  "text": "method: \"POST\", uri: \"/tasks\", code: 201",
+                                  "children": [
+                                    {
+                                      "kind": "NodeObjectKvp",
+                                      "offset": 785,
+                                      "length": 14,
+                                      "text": "method: \"POST\"",
+                                      "children": [
+                                        {
+                                          "kind": "NodeObjectKey",
+                                          "offset": 785,
+                                          "length": 6,
+                                          "text": "method",
+                                          "children": [
+                                            {
+                                              "kind": "Identifier",
+                                              "offset": 785,
+                                              "length": 6,
+                                              "text": "method",
+                                              "children": []
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "kind": "NodeValue",
+                                          "offset": 793,
+                                          "length": 6,
+                                          "text": "\"POST\"",
+                                          "children": [
+                                            {
+                                              "kind": "NodeStringValue",
+                                              "offset": 793,
+                                              "length": 6,
+                                              "text": "\"POST\"",
+                                              "children": [
+                                                {
+                                                  "kind": "QuotedText",
+                                                  "offset": 793,
+                                                  "length": 6,
+                                                  "text": "\"POST\"",
+                                                  "children": []
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "kind": "NodeObjectKvp",
+                                      "offset": 801,
+                                      "length": 13,
+                                      "text": "uri: \"/tasks\"",
+                                      "children": [
+                                        {
+                                          "kind": "NodeObjectKey",
+                                          "offset": 801,
+                                          "length": 3,
+                                          "text": "uri",
+                                          "children": [
+                                            {
+                                              "kind": "Identifier",
+                                              "offset": 801,
+                                              "length": 3,
+                                              "text": "uri",
+                                              "children": []
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "kind": "NodeValue",
+                                          "offset": 806,
+                                          "length": 8,
+                                          "text": "\"/tasks\"",
+                                          "children": [
+                                            {
+                                              "kind": "NodeStringValue",
+                                              "offset": 806,
+                                              "length": 8,
+                                              "text": "\"/tasks\"",
+                                              "children": [
+                                                {
+                                                  "kind": "QuotedText",
+                                                  "offset": 806,
+                                                  "length": 8,
+                                                  "text": "\"/tasks\"",
+                                                  "children": []
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "kind": "NodeObjectKvp",
+                                      "offset": 816,
+                                      "length": 9,
+                                      "text": "code: 201",
+                                      "children": [
+                                        {
+                                          "kind": "NodeObjectKey",
+                                          "offset": 816,
+                                          "length": 4,
+                                          "text": "code",
+                                          "children": [
+                                            {
+                                              "kind": "Identifier",
+                                              "offset": 816,
+                                              "length": 4,
+                                              "text": "code",
+                                              "children": []
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "kind": "NodeValue",
+                                          "offset": 822,
+                                          "length": 3,
+                                          "text": "201",
+                                          "children": [
+                                            {
+                                              "kind": "Number",
+                                              "offset": 822,
+                                              "length": 3,
+                                              "text": "201",
+                                              "children": [
+                                                {
+                                                  "kind": "Int",
+                                                  "offset": 822,
+                                                  "length": 3,
+                                                  "text": "201",
+                                                  "children": []
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "Shape",
+                      "offset": 827,
+                      "length": 80,
+                      "text": "operation CreateTask {\n    input: CreateTaskInput\n    output: CreateTaskOutput\n}",
+                      "children": [
+                        {
+                          "kind": "OperationShape",
+                          "offset": 827,
+                          "length": 80,
+                          "text": "operation CreateTask {\n    input: CreateTaskInput\n    output: CreateTaskOutput\n}",
+                          "children": [
+                            {
+                              "kind": "Identifier",
+                              "offset": 837,
+                              "length": 10,
+                              "text": "CreateTask",
+                              "children": []
+                            },
+                            {
+                              "kind": "OperationBody",
+                              "offset": 848,
+                              "length": 59,
+                              "text": "{\n    input: CreateTaskInput\n    output: CreateTaskOutput\n}",
+                              "children": [
+                                {
+                                  "kind": "OperationProperty",
+                                  "offset": 854,
+                                  "length": 22,
+                                  "text": "input: CreateTaskInput",
+                                  "children": [
+                                    {
+                                      "kind": "OperationInput",
+                                      "offset": 854,
+                                      "length": 22,
+                                      "text": "input: CreateTaskInput",
+                                      "children": [
+                                        {
+                                          "kind": "ShapeId",
+                                          "offset": 861,
+                                          "length": 15,
+                                          "text": "CreateTaskInput",
+                                          "children": [
+                                            {
+                                              "kind": "RootShapeId",
+                                              "offset": 861,
+                                              "length": 15,
+                                              "text": "CreateTaskInput",
+                                              "children": [
+                                                {
+                                                  "kind": "Identifier",
+                                                  "offset": 861,
+                                                  "length": 15,
+                                                  "text": "CreateTaskInput",
+                                                  "children": []
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "kind": "OperationProperty",
+                                  "offset": 881,
+                                  "length": 24,
+                                  "text": "output: CreateTaskOutput",
+                                  "children": [
+                                    {
+                                      "kind": "OperationOutput",
+                                      "offset": 881,
+                                      "length": 24,
+                                      "text": "output: CreateTaskOutput",
+                                      "children": [
+                                        {
+                                          "kind": "ShapeId",
+                                          "offset": 889,
+                                          "length": 16,
+                                          "text": "CreateTaskOutput",
+                                          "children": [
+                                            {
+                                              "kind": "RootShapeId",
+                                              "offset": 889,
+                                              "length": 16,
+                                              "text": "CreateTaskOutput",
+                                              "children": [
+                                                {
+                                                  "kind": "Identifier",
+                                                  "offset": 889,
+                                                  "length": 16,
+                                                  "text": "CreateTaskOutput",
+                                                  "children": []
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "ShapeOrApplyStatement",
+              "offset": 909,
+              "length": 98,
+              "text": "@http(method: \"GET\", uri: \"/tasks\", code: 200)\noperation ListTasks {\n    output: ListTasksOutput\n}",
+              "children": [
+                {
+                  "kind": "ShapeStatement",
+                  "offset": 909,
+                  "length": 98,
+                  "text": "@http(method: \"GET\", uri: \"/tasks\", code: 200)\noperation ListTasks {\n    output: ListTasksOutput\n}",
+                  "children": [
+                    {
+                      "kind": "TraitStatements",
+                      "offset": 909,
+                      "length": 47,
+                      "text": "@http(method: \"GET\", uri: \"/tasks\", code: 200)\n",
+                      "children": [
+                        {
+                          "kind": "Trait",
+                          "offset": 909,
+                          "length": 46,
+                          "text": "@http(method: \"GET\", uri: \"/tasks\", code: 200)",
+                          "children": [
+                            {
+                              "kind": "ShapeId",
+                              "offset": 910,
+                              "length": 4,
+                              "text": "http",
+                              "children": [
+                                {
+                                  "kind": "RootShapeId",
+                                  "offset": 910,
+                                  "length": 4,
+                                  "text": "http",
+                                  "children": [
+                                    {
+                                      "kind": "Identifier",
+                                      "offset": 910,
+                                      "length": 4,
+                                      "text": "http",
+                                      "children": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "kind": "TraitBody",
+                              "offset": 914,
+                              "length": 41,
+                              "text": "(method: \"GET\", uri: \"/tasks\", code: 200)",
+                              "children": [
+                                {
+                                  "kind": "TraitStructure",
+                                  "offset": 915,
+                                  "length": 39,
+                                  "text": "method: \"GET\", uri: \"/tasks\", code: 200",
+                                  "children": [
+                                    {
+                                      "kind": "NodeObjectKvp",
+                                      "offset": 915,
+                                      "length": 13,
+                                      "text": "method: \"GET\"",
+                                      "children": [
+                                        {
+                                          "kind": "NodeObjectKey",
+                                          "offset": 915,
+                                          "length": 6,
+                                          "text": "method",
+                                          "children": [
+                                            {
+                                              "kind": "Identifier",
+                                              "offset": 915,
+                                              "length": 6,
+                                              "text": "method",
+                                              "children": []
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "kind": "NodeValue",
+                                          "offset": 923,
+                                          "length": 5,
+                                          "text": "\"GET\"",
+                                          "children": [
+                                            {
+                                              "kind": "NodeStringValue",
+                                              "offset": 923,
+                                              "length": 5,
+                                              "text": "\"GET\"",
+                                              "children": [
+                                                {
+                                                  "kind": "QuotedText",
+                                                  "offset": 923,
+                                                  "length": 5,
+                                                  "text": "\"GET\"",
+                                                  "children": []
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "kind": "NodeObjectKvp",
+                                      "offset": 930,
+                                      "length": 13,
+                                      "text": "uri: \"/tasks\"",
+                                      "children": [
+                                        {
+                                          "kind": "NodeObjectKey",
+                                          "offset": 930,
+                                          "length": 3,
+                                          "text": "uri",
+                                          "children": [
+                                            {
+                                              "kind": "Identifier",
+                                              "offset": 930,
+                                              "length": 3,
+                                              "text": "uri",
+                                              "children": []
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "kind": "NodeValue",
+                                          "offset": 935,
+                                          "length": 8,
+                                          "text": "\"/tasks\"",
+                                          "children": [
+                                            {
+                                              "kind": "NodeStringValue",
+                                              "offset": 935,
+                                              "length": 8,
+                                              "text": "\"/tasks\"",
+                                              "children": [
+                                                {
+                                                  "kind": "QuotedText",
+                                                  "offset": 935,
+                                                  "length": 8,
+                                                  "text": "\"/tasks\"",
+                                                  "children": []
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "kind": "NodeObjectKvp",
+                                      "offset": 945,
+                                      "length": 9,
+                                      "text": "code: 200",
+                                      "children": [
+                                        {
+                                          "kind": "NodeObjectKey",
+                                          "offset": 945,
+                                          "length": 4,
+                                          "text": "code",
+                                          "children": [
+                                            {
+                                              "kind": "Identifier",
+                                              "offset": 945,
+                                              "length": 4,
+                                              "text": "code",
+                                              "children": []
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "kind": "NodeValue",
+                                          "offset": 951,
+                                          "length": 3,
+                                          "text": "200",
+                                          "children": [
+                                            {
+                                              "kind": "Number",
+                                              "offset": 951,
+                                              "length": 3,
+                                              "text": "200",
+                                              "children": [
+                                                {
+                                                  "kind": "Int",
+                                                  "offset": 951,
+                                                  "length": 3,
+                                                  "text": "200",
+                                                  "children": []
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "Shape",
+                      "offset": 956,
+                      "length": 51,
+                      "text": "operation ListTasks {\n    output: ListTasksOutput\n}",
+                      "children": [
+                        {
+                          "kind": "OperationShape",
+                          "offset": 956,
+                          "length": 51,
+                          "text": "operation ListTasks {\n    output: ListTasksOutput\n}",
+                          "children": [
+                            {
+                              "kind": "Identifier",
+                              "offset": 966,
+                              "length": 9,
+                              "text": "ListTasks",
+                              "children": []
+                            },
+                            {
+                              "kind": "OperationBody",
+                              "offset": 976,
+                              "length": 31,
+                              "text": "{\n    output: ListTasksOutput\n}",
+                              "children": [
+                                {
+                                  "kind": "OperationProperty",
+                                  "offset": 982,
+                                  "length": 23,
+                                  "text": "output: ListTasksOutput",
+                                  "children": [
+                                    {
+                                      "kind": "OperationOutput",
+                                      "offset": 982,
+                                      "length": 23,
+                                      "text": "output: ListTasksOutput",
+                                      "children": [
+                                        {
+                                          "kind": "ShapeId",
+                                          "offset": 990,
+                                          "length": 15,
+                                          "text": "ListTasksOutput",
+                                          "children": [
+                                            {
+                                              "kind": "RootShapeId",
+                                              "offset": 990,
+                                              "length": 15,
+                                              "text": "ListTasksOutput",
+                                              "children": [
+                                                {
+                                                  "kind": "Identifier",
+                                                  "offset": 990,
+                                                  "length": 15,
+                                                  "text": "ListTasksOutput",
+                                                  "children": []
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "ShapeOrApplyStatement",
+              "offset": 1009,
+              "length": 106,
+              "text": "@http(method: \"DELETE\", uri: \"/tasks/{id}\", code: 204)\noperation DeleteTask {\n    input: DeleteTaskInput\n}",
+              "children": [
+                {
+                  "kind": "ShapeStatement",
+                  "offset": 1009,
+                  "length": 106,
+                  "text": "@http(method: \"DELETE\", uri: \"/tasks/{id}\", code: 204)\noperation DeleteTask {\n    input: DeleteTaskInput\n}",
+                  "children": [
+                    {
+                      "kind": "TraitStatements",
+                      "offset": 1009,
+                      "length": 55,
+                      "text": "@http(method: \"DELETE\", uri: \"/tasks/{id}\", code: 204)\n",
+                      "children": [
+                        {
+                          "kind": "Trait",
+                          "offset": 1009,
+                          "length": 54,
+                          "text": "@http(method: \"DELETE\", uri: \"/tasks/{id}\", code: 204)",
+                          "children": [
+                            {
+                              "kind": "ShapeId",
+                              "offset": 1010,
+                              "length": 4,
+                              "text": "http",
+                              "children": [
+                                {
+                                  "kind": "RootShapeId",
+                                  "offset": 1010,
+                                  "length": 4,
+                                  "text": "http",
+                                  "children": [
+                                    {
+                                      "kind": "Identifier",
+                                      "offset": 1010,
+                                      "length": 4,
+                                      "text": "http",
+                                      "children": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "kind": "TraitBody",
+                              "offset": 1014,
+                              "length": 49,
+                              "text": "(method: \"DELETE\", uri: \"/tasks/{id}\", code: 204)",
+                              "children": [
+                                {
+                                  "kind": "TraitStructure",
+                                  "offset": 1015,
+                                  "length": 47,
+                                  "text": "method: \"DELETE\", uri: \"/tasks/{id}\", code: 204",
+                                  "children": [
+                                    {
+                                      "kind": "NodeObjectKvp",
+                                      "offset": 1015,
+                                      "length": 16,
+                                      "text": "method: \"DELETE\"",
+                                      "children": [
+                                        {
+                                          "kind": "NodeObjectKey",
+                                          "offset": 1015,
+                                          "length": 6,
+                                          "text": "method",
+                                          "children": [
+                                            {
+                                              "kind": "Identifier",
+                                              "offset": 1015,
+                                              "length": 6,
+                                              "text": "method",
+                                              "children": []
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "kind": "NodeValue",
+                                          "offset": 1023,
+                                          "length": 8,
+                                          "text": "\"DELETE\"",
+                                          "children": [
+                                            {
+                                              "kind": "NodeStringValue",
+                                              "offset": 1023,
+                                              "length": 8,
+                                              "text": "\"DELETE\"",
+                                              "children": [
+                                                {
+                                                  "kind": "QuotedText",
+                                                  "offset": 1023,
+                                                  "length": 8,
+                                                  "text": "\"DELETE\"",
+                                                  "children": []
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "kind": "NodeObjectKvp",
+                                      "offset": 1033,
+                                      "length": 18,
+                                      "text": "uri: \"/tasks/{id}\"",
+                                      "children": [
+                                        {
+                                          "kind": "NodeObjectKey",
+                                          "offset": 1033,
+                                          "length": 3,
+                                          "text": "uri",
+                                          "children": [
+                                            {
+                                              "kind": "Identifier",
+                                              "offset": 1033,
+                                              "length": 3,
+                                              "text": "uri",
+                                              "children": []
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "kind": "NodeValue",
+                                          "offset": 1038,
+                                          "length": 13,
+                                          "text": "\"/tasks/{id}\"",
+                                          "children": [
+                                            {
+                                              "kind": "NodeStringValue",
+                                              "offset": 1038,
+                                              "length": 13,
+                                              "text": "\"/tasks/{id}\"",
+                                              "children": [
+                                                {
+                                                  "kind": "QuotedText",
+                                                  "offset": 1038,
+                                                  "length": 13,
+                                                  "text": "\"/tasks/{id}\"",
+                                                  "children": []
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "kind": "NodeObjectKvp",
+                                      "offset": 1053,
+                                      "length": 9,
+                                      "text": "code: 204",
+                                      "children": [
+                                        {
+                                          "kind": "NodeObjectKey",
+                                          "offset": 1053,
+                                          "length": 4,
+                                          "text": "code",
+                                          "children": [
+                                            {
+                                              "kind": "Identifier",
+                                              "offset": 1053,
+                                              "length": 4,
+                                              "text": "code",
+                                              "children": []
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "kind": "NodeValue",
+                                          "offset": 1059,
+                                          "length": 3,
+                                          "text": "204",
+                                          "children": [
+                                            {
+                                              "kind": "Number",
+                                              "offset": 1059,
+                                              "length": 3,
+                                              "text": "204",
+                                              "children": [
+                                                {
+                                                  "kind": "Int",
+                                                  "offset": 1059,
+                                                  "length": 3,
+                                                  "text": "204",
+                                                  "children": []
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "Shape",
+                      "offset": 1064,
+                      "length": 51,
+                      "text": "operation DeleteTask {\n    input: DeleteTaskInput\n}",
+                      "children": [
+                        {
+                          "kind": "OperationShape",
+                          "offset": 1064,
+                          "length": 51,
+                          "text": "operation DeleteTask {\n    input: DeleteTaskInput\n}",
+                          "children": [
+                            {
+                              "kind": "Identifier",
+                              "offset": 1074,
+                              "length": 10,
+                              "text": "DeleteTask",
+                              "children": []
+                            },
+                            {
+                              "kind": "OperationBody",
+                              "offset": 1085,
+                              "length": 30,
+                              "text": "{\n    input: DeleteTaskInput\n}",
+                              "children": [
+                                {
+                                  "kind": "OperationProperty",
+                                  "offset": 1091,
+                                  "length": 22,
+                                  "text": "input: DeleteTaskInput",
+                                  "children": [
+                                    {
+                                      "kind": "OperationInput",
+                                      "offset": 1091,
+                                      "length": 22,
+                                      "text": "input: DeleteTaskInput",
+                                      "children": [
+                                        {
+                                          "kind": "ShapeId",
+                                          "offset": 1098,
+                                          "length": 15,
+                                          "text": "DeleteTaskInput",
+                                          "children": [
+                                            {
+                                              "kind": "RootShapeId",
+                                              "offset": 1098,
+                                              "length": 15,
+                                              "text": "DeleteTaskInput",
+                                              "children": [
+                                                {
+                                                  "kind": "Identifier",
+                                                  "offset": 1098,
+                                                  "length": 15,
+                                                  "text": "DeleteTaskInput",
+                                                  "children": []
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
