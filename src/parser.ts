@@ -1,19 +1,23 @@
 /**
  * TODO:
+ * - [ ] http protocols
  * - [ ] descriptions
  * - [ ] constants
  * - [ ] defaults
- * - [ ] http protocols
  * - [ ] InlineAggregateShapes
  * - [ ] For statements
+ * - [ ] mixins
  * - [ ] Apply statements
  * - [ ] array min/max items rule
  * - [ ] object rules
+ * - [ ] parse meta/extensions
  */
 
 import {
   decodeRange,
   Enum,
+  HttpMethod,
+  HttpPath,
   Interface,
   Method,
   Parameter,
@@ -194,10 +198,97 @@ class SmithyParser {
         loc: node.name.loc,
       },
       protocols: {
-        http: [],
+        http: this.parseHttpProtocol(operations),
       },
       methods: Array.from(this.emitMethods(operations)),
     };
+  }
+
+  private parseHttpProtocol(
+    operations: syntax.OperationShapeNode[],
+  ): HttpPath[] {
+    const paths = new Map<string, HttpPath>();
+
+    for (const operation of operations) {
+      const traits = this.index.traits(operation.name.text);
+      const httpTrait = traits.find((trait) => trait.id.text === 'http');
+
+      if (!httpTrait) continue;
+      if (!Array.isArray(httpTrait.body)) continue;
+
+      const method = httpTrait.body.find((x) => x.key.text === 'method')?.value;
+      const uri = httpTrait.body.find((x) => x.key.text === 'uri')?.value;
+      const code = httpTrait.body.find((x) => x.key.text === 'code')?.value;
+
+      if (method?.kind !== 'NodeStringValue') continue;
+      if (uri?.kind !== 'NodeStringValue') continue;
+      if (code !== undefined && code?.kind !== 'Number') continue;
+
+      if (!paths.has(uri.text)) {
+        paths.set(uri.text, {
+          kind: 'HttpPath',
+          path: { value: uri.text, loc: uri.loc },
+          methods: [],
+          loc: httpTrait.loc,
+          // TODO: meta/extensions
+        });
+      }
+
+      const httpPath = paths.get(uri.text)!; // We just wrote this above
+      httpPath.methods.push(this.parseHttpMethod(operation, method, code));
+    }
+
+    return [];
+  }
+
+  private parseHttpMethod(
+    operation: syntax.OperationShapeNode,
+    method: syntax.NodeStringValueNode,
+    code: syntax.NumberNode | undefined,
+  ): HttpMethod {
+    return {
+      kind: 'HttpMethod',
+      name: { value: operation.name.text, loc: operation.name.loc },
+      successCode: code ? { value: code.value, loc: code.loc } : { value: 200 },
+      parameters: [], // TODO
+      requestMediaTypes: [{ value: '*/*' }], // TODO
+      responseMediaTypes: [{ value: '*/*' }], // TODO
+      verb: this.parseVerb(method),
+    };
+  }
+
+  private parseVerb(node: syntax.NodeStringValueNode): HttpMethod['verb'] {
+    const m = (): HttpMethod['verb']['value'] => {
+      switch (node.text) {
+        case 'GET':
+          return 'get';
+        case 'POST':
+          return 'post';
+        case 'PUT':
+          return 'put';
+        case 'PATCH':
+          return 'patch';
+        case 'DELETE':
+          return 'delete';
+        case 'HEAD':
+          return 'head';
+        case 'OPTIONS':
+          return 'options';
+        case 'TRACE':
+          return 'trace';
+        default:
+          this.violations.push({
+            code: '@basketry-smithy/unsupported-http-verb',
+            message: `Unsupported HTTP verb: ${node.text}`,
+            range: decodeRange(node.loc),
+            severity: 'error',
+            sourcePath: this.sourcePath,
+          });
+          return 'get';
+      }
+    };
+
+    return { value: m(), loc: node.loc };
   }
 
   private *emitMethods(
