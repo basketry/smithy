@@ -17,6 +17,7 @@ import {
   decodeRange,
   Enum,
   HttpMethod,
+  HttpParameter,
   HttpPath,
   Interface,
   Method,
@@ -238,7 +239,7 @@ class SmithyParser {
       httpPath.methods.push(this.parseHttpMethod(operation, method, code));
     }
 
-    return [];
+    return Array.from(paths.values());
   }
 
   private parseHttpMethod(
@@ -250,7 +251,7 @@ class SmithyParser {
       kind: 'HttpMethod',
       name: { value: operation.name.text, loc: operation.name.loc },
       successCode: code ? { value: code.value, loc: code.loc } : { value: 200 },
-      parameters: [], // TODO
+      parameters: Array.from(this.parseHttpParameters(operation)), // TODO
       requestMediaTypes: [{ value: '*/*' }], // TODO
       responseMediaTypes: [{ value: '*/*' }], // TODO
       verb: this.parseVerb(method),
@@ -259,27 +260,29 @@ class SmithyParser {
 
   private parseVerb(node: syntax.NodeStringValueNode): HttpMethod['verb'] {
     const m = (): HttpMethod['verb']['value'] => {
-      switch (node.text) {
-        case 'GET':
+      const verb = node.text;
+
+      switch (verb) {
+        case '"GET"':
           return 'get';
-        case 'POST':
+        case '"POST"':
           return 'post';
-        case 'PUT':
+        case '"PUT"':
           return 'put';
-        case 'PATCH':
+        case '"PATCH"':
           return 'patch';
-        case 'DELETE':
+        case '"DELETE"':
           return 'delete';
-        case 'HEAD':
+        case '"HEAD"':
           return 'head';
-        case 'OPTIONS':
+        case '"OPTIONS"':
           return 'options';
-        case 'TRACE':
+        case '"TRACE"':
           return 'trace';
         default:
           this.violations.push({
             code: '@basketry-smithy/unsupported-http-verb',
-            message: `Unsupported HTTP verb: ${node.text}`,
+            message: `Unsupported HTTP verb: ${verb}`,
             range: decodeRange(node.loc),
             severity: 'error',
             sourcePath: this.sourcePath,
@@ -291,16 +294,10 @@ class SmithyParser {
     return { value: m(), loc: node.loc };
   }
 
-  private *emitMethods(
-    nodes: Iterable<syntax.OperationShapeNode>,
-  ): Iterable<Method> {
-    for (const node of nodes) {
-      yield this.emitMethod(node);
-    }
-  }
-
-  private emitMethod(node: syntax.OperationShapeNode): Method {
-    const input = node.body.input;
+  private *parseHttpParameters(
+    operation: syntax.OperationShapeNode,
+  ): Iterable<HttpParameter> {
+    const input = operation.body.input;
     if (input?.kind === 'InlineAggregateShape') {
       this.violations.push({
         code: '@basketry-smithy/unsupported-feature',
@@ -313,7 +310,70 @@ class SmithyParser {
     const inputShape =
       input?.kind === 'ShapeId' ? this.index.structure(input?.text) : undefined;
 
-    const output = node.body.output;
+    if (inputShape) {
+      for (const member of inputShape.members) {
+        yield this.parseHttpParameter(member);
+      }
+    }
+  }
+  private parseHttpParameter(node: syntax.ShapeMemberNode): HttpParameter {
+    const member = node.member;
+
+    const identifier =
+      member.kind === 'ElidedShapeMember' ? member.identifier : member.name;
+
+    const { isArray, inheritedTraits } = this.parseMemberType(node);
+
+    return {
+      kind: 'HttpParameter',
+      in: this.parseIn([...inheritedTraits, ...node.traits]),
+      name: {
+        value: identifier.text,
+        loc: identifier.loc,
+      },
+      array: isArray ? { value: 'csv', loc: member.loc } : undefined, // TODO
+      loc: node.loc,
+    };
+  }
+
+  private parseIn(traits: Iterable<syntax.TraitNode>): HttpParameter['in'] {
+    for (const trait of traits) {
+      switch (trait.id.text) {
+        case 'httpLabel':
+          return { value: 'path', loc: trait.loc };
+        case 'httpQuery':
+          return { value: 'query', loc: trait.loc };
+        case 'httpBody':
+          return { value: 'body', loc: trait.loc };
+      }
+    }
+
+    return { value: 'query' };
+  }
+
+  private *emitMethods(
+    nodes: Iterable<syntax.OperationShapeNode>,
+  ): Iterable<Method> {
+    for (const node of nodes) {
+      yield this.emitMethod(node);
+    }
+  }
+
+  private emitMethod(operation: syntax.OperationShapeNode): Method {
+    const input = operation.body.input;
+    if (input?.kind === 'InlineAggregateShape') {
+      this.violations.push({
+        code: '@basketry-smithy/unsupported-feature',
+        message: `Inline aggregate shapes not yet supported`,
+        range: input.range,
+        severity: 'info',
+        sourcePath: this.sourcePath,
+      });
+    }
+    const inputShape =
+      input?.kind === 'ShapeId' ? this.index.structure(input?.text) : undefined;
+
+    const output = operation.body.output;
     if (output?.kind === 'InlineAggregateShape') {
       this.violations.push({
         code: '@basketry-smithy/unsupported-feature',
@@ -330,16 +390,16 @@ class SmithyParser {
     return {
       kind: 'Method',
       name: {
-        value: node.name.text,
-        loc: node.name.loc,
+        value: operation.name.text,
+        loc: operation.name.loc,
       },
-      deprecated: this.emitDeprecated(this.index.traits(node.name.text)),
+      deprecated: this.emitDeprecated(this.index.traits(operation.name.text)),
       parameters: (inputShape?.members ?? [])
         .map((member) => this.parseShapeMemberToMember(member))
         .map(toParameter),
       returnType,
       security: [],
-      loc: node.loc,
+      loc: operation.loc,
     };
   }
 
